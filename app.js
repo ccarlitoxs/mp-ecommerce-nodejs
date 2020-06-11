@@ -12,6 +12,7 @@ app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
 //Puerto de la app
 const PORT = process.env.PORT || 4000;
@@ -118,7 +119,7 @@ app.post('/ipn', function (req, res) {
 
     console.log('ipn ejecutada');
     console.log(req.query);
-    console.log(req);
+    // console.log(req);
     console.log(req.body);
 
     mercadopago.configure({
