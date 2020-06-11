@@ -4,7 +4,7 @@
   "description": "Creado para examen de mercado pago",
   "main": "app.js",
   "scripts": {
-    "app": "node ."
+    "start": "node ."
   },
   "author": "Cochancod Carlos Ivan",
   "license": "ISC",
