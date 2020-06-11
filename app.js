@@ -120,47 +120,47 @@ app.post('/ipn', function (req, res) {
         integrator_id: 'dev_24c65fb163bf11ea96500242ac130004',
         });
 
-    switch(req.query.type) {
-        case "payment":
-            payment.get = requestManager.describe({
-                path: `/v1/payments/:${req.query['data.id']}?access_token=APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398`,
-                method: "GET"
-              });
+    // switch(req.query.type) {
+    //     case "payment":
+    //         payment.get = requestManager.describe({
+    //             path: `/v1/payments/:${req.query['data.id']}?access_token=APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398`,
+    //             method: "GET"
+    //           });
               
-              // Calling the get
-              mercadopago.payment.get(1, {}, function() {});
-            break;
-        case "plan":
-            plan.get = requestManager.describe({
-                path: `/v1/plans/:${req.query.id}?access_token=APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398`,
-                method: "GET"
-              });
+    //           // Calling the get
+    //           mercadopago.payment.get(1, {}, function() {});
+    //         break;
+    //     case "plan":
+    //         plan.get = requestManager.describe({
+    //             path: `/v1/plans/:${req.query.id}?access_token=APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398`,
+    //             method: "GET"
+    //           });
               
-              // Calling the get
-              mercadopago.payment.get(1, {}, function() {});
-            break;
-        case "subscription":
-            subscription.get = requestManager.describe({
-                path: `/v1/subscriptions/:${req.query.id}?access_token=APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398`,
-                method: "GET"
-              });
+    //           // Calling the get
+    //           mercadopago.payment.get(1, {}, function() {});
+    //         break;
+    //     case "subscription":
+    //         subscription.get = requestManager.describe({
+    //             path: `/v1/subscriptions/:${req.query.id}?access_token=APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398`,
+    //             method: "GET"
+    //           });
               
-              // Calling the get
-              mercadopago.payment.get(1, {}, function() {});
-            break;
-        case "invoice":
-            invoice.get = requestManager.describe({
-                path: `/v1/invoices/:${req.query.id}?access_token=APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398`,
-                method: "GET"
-              });
+    //           // Calling the get
+    //           mercadopago.payment.get(1, {}, function() {});
+    //         break;
+    //     case "invoice":
+    //         invoice.get = requestManager.describe({
+    //             path: `/v1/invoices/:${req.query.id}?access_token=APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398`,
+    //             method: "GET"
+    //           });
               
-              // Calling the get
-              mercadopago.payment.get(1, {}, function() {});
-            break;
-            default:
-              console.log('nada que mostrar');
-            ;
-    }
+    //           // Calling the get
+    //           mercadopago.payment.get(1, {}, function() {});
+    //         break;
+    //         default:
+    //           console.log('nada que mostrar');
+    //         ;
+    // }
 
     res.sendStatus(200);
 });
