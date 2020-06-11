@@ -111,6 +111,8 @@ app.get('/rechazado', function (req, res) {
 });
 
 app.post('/ipn', function (req, res) {
+
+    console.log('ipn ejecutada');
     console.log(req.body);
     console.log(req.query);
     // if (req.body.collection_status === 'approved') {
