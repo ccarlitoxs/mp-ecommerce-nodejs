@@ -114,6 +114,7 @@ app.post('/ipn', function (req, res) {
 
     console.log('ipn ejecutada');
     console.log(req.query);
+    console.log(req);
 
     mercadopago.configure({
         access_token: 'APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398',
@@ -187,3 +188,7 @@ app.listen(PORT,'0.0.0.0',() => {
 //     processing_mode: 'aggregator',
 //     merchant_account_id: 'null'
 //   }
+
+// { id: '7055067515', topic: 'payment' }
+// { 'data.id': '7055067515', type: 'payment' }
+// { id: '1524572190', topic: 'merchant_order' }
