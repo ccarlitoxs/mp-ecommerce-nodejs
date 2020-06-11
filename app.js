@@ -91,6 +91,7 @@ app.get('/detail', function (req, res) {
     .then(function(response){
     // Este valor reemplazará el string "$$init_point$$" en tu HTML
     console.log(response);
+    console.log(response.body.address);
     initPoint = response.body.init_point;
     res.render('detail', {initPoint:initPoint,page:"item",title:req.query.title,price:req.query.price,unit:req.query.unit,img:req.query.img});
     }).catch(function(error){
@@ -118,8 +119,6 @@ app.get('/rechazado', function (req, res) {
 app.post('/ipn', function (req, res) {
 
     console.log('ipn ejecutada');
-    console.log(req.query);
-    // console.log(req);
     console.log(req.body);
 
     mercadopago.configure({
@@ -127,47 +126,7 @@ app.post('/ipn', function (req, res) {
         integrator_id: 'dev_24c65fb163bf11ea96500242ac130004',
         });
 
-    // switch(req.query.type) {
-    //     case "payment":
-    //         payment.get = requestManager.describe({
-    //             path: `/v1/payments/:${req.query['data.id']}?access_token=APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398`,
-    //             method: "GET"
-    //           });
-              
-    //           // Calling the get
-    //           mercadopago.payment.get(1, {}, function() {});
-    //         break;
-    //     case "plan":
-    //         plan.get = requestManager.describe({
-    //             path: `/v1/plans/:${req.query.id}?access_token=APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398`,
-    //             method: "GET"
-    //           });
-              
-    //           // Calling the get
-    //           mercadopago.payment.get(1, {}, function() {});
-    //         break;
-    //     case "subscription":
-    //         subscription.get = requestManager.describe({
-    //             path: `/v1/subscriptions/:${req.query.id}?access_token=APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398`,
-    //             method: "GET"
-    //           });
-              
-    //           // Calling the get
-    //           mercadopago.payment.get(1, {}, function() {});
-    //         break;
-    //     case "invoice":
-    //         invoice.get = requestManager.describe({
-    //             path: `/v1/invoices/:${req.query.id}?access_token=APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398`,
-    //             method: "GET"
-    //           });
-              
-    //           // Calling the get
-    //           mercadopago.payment.get(1, {}, function() {});
-    //         break;
-    //         default:
-    //           console.log('nada que mostrar');
-    //         ;
-    // }
+        // {"action":"payment.created","api_version":"v1","data":{"id":"7059830292"},"date_created":"2020-06-11T18:28:27Z","id":5966024783,"live_mode":true,"type":"payment","user_id":"469485398"}
 
     res.sendStatus(200);
 });
