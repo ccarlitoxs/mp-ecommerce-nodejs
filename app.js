@@ -3,11 +3,15 @@ var exphbs  = require('express-handlebars');
 // SDK de Mercado Pago
 const mercadopago = require ('mercadopago');
 require('dotenv').config({path:'variables.env'});
+const bodyParser = require('body-parser');
+
  
 var app = express();
  
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
+
+app.use(bodyParser.json());
 
 //Puerto de la app
 const PORT = process.env.PORT || 4000;
