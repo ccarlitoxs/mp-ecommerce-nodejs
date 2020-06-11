@@ -79,7 +79,7 @@ app.get('/detail', function (req, res) {
         ],
         "installments": 6
     },
-    // "notification_url":process.env.BASE_URLSERVER+"/ipn"
+    "notification_url":process.env.BASE_URLSERVER+"/ipn"
     };
 
     mercadopago.preferences.create(preference)
