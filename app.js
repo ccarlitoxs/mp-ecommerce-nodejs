@@ -157,6 +157,9 @@ app.post('/ipn', function (req, res) {
               // Calling the get
               mercadopago.payment.get(1, {}, function() {});
             break;
+            default:
+              console.log('nada que mostrar');
+            ;
     }
 
     res.sendStatus(200);
