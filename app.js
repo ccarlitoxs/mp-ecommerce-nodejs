@@ -113,15 +113,51 @@ app.get('/rechazado', function (req, res) {
 app.post('/ipn', function (req, res) {
 
     console.log('ipn ejecutada');
-    console.log(req.body);
     console.log(req.query);
-    // if (req.body.collection_status === 'approved') {
-        
-    // } else if (req.body.collection_status === 'pending') {
-    //     res.render('pendiente',{page:"home",respuesta:req.query});
-    // } else {
-    //     res.render('rechazado',{page:"home",respuesta:req.query});
-    // }
+
+    mercadopago.configure({
+        access_token: 'APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398',
+        integrator_id: 'dev_24c65fb163bf11ea96500242ac130004',
+        });
+
+    switch(req.query.type) {
+        case "payment":
+            payment.get = requestManager.describe({
+                path: `/v1/payments/:${req.query.id}`,
+                method: "GET"
+              });
+              
+              // Calling the get
+              mercadopago.payment.get(1, {}, function() {});
+            break;
+        case "plan":
+            plan.get = requestManager.describe({
+                path: `/v1/plans/:${req.query.id}`,
+                method: "GET"
+              });
+              
+              // Calling the get
+              mercadopago.payment.get(1, {}, function() {});
+            break;
+        case "subscription":
+            subscription.get = requestManager.describe({
+                path: `/v1/subscriptions/:${req.query.id}`,
+                method: "GET"
+              });
+              
+              // Calling the get
+              mercadopago.payment.get(1, {}, function() {});
+            break;
+        case "invoice":
+            invoice.get = requestManager.describe({
+                path: `/v1/invoices/:${req.query.id}`,
+                method: "GET"
+              });
+              
+              // Calling the get
+              mercadopago.payment.get(1, {}, function() {});
+            break;
+    }
 
     res.sendStatus(200);
 });
